@@ -4,14 +4,24 @@ var rowCount = 0;
 var chosenColor;
 var table = document.getElementById("grid");
 
-
 /*
-Refresh table changes
+function to create a cell with onclick and click and drag functionality
 */
+function newCell(){
+	let newC = document.createElement("td");
+	newC.style.backgroundColor = "#ffffff";
+	newC.onmousedown = function() {
+		depressed = true;
+	}
+	newC.onmouseup = function() {
+		depressed = false;
+	}
+	newC.onmouseover = function () {
+		if (depressed) this.style.backgroundColor = chosenColor;
+	}
+	return newC;
+}
 
-/*
-OnClick
-*/
 
 /*
 add rows to the grid
@@ -26,7 +36,8 @@ function addR(){
 		// Create new table row
 		let addRow = document.createElement("tr");
 		// Create new table data (aka cell)
-		let addCol = document.createElement("td");
+		// let addCol = document.createElement("td");
+		let addCol = newCell();
 		// Add this 1-cell column to the row
 		addRow.appendChild(addCol);
 		// Add this Row X Column to the grid table
@@ -40,7 +51,8 @@ function addR(){
 		// Add colCount cells to the row
 		for (let i = 0; i < colCount; i++){
 			// Create new cell
-			let addCol = document.createElement("td");
+			//let addCol = document.createElement("td");
+			let addCol = newCell();
 			// Append it to the row
 			addRow.appendChild(addCol);
 		}
@@ -62,7 +74,8 @@ function addC(){
 		// Create new table row
 		let addRow = document.createElement("tr");
 		// Create new table data (aka cell)
-		let addCol = document.createElement("td");
+		//let addCol = document.createElement("td");
+		let addCol = newCell();
 		// Add this 1-cell column to the row
 		addRow.appendChild(addCol);
 		// Add this Row X Column to the grid table
@@ -75,7 +88,8 @@ function addC(){
 		let rows = table.getElementsByTagName("tr");
 		for (let i = 0; i < rowCount; i++){
 			// Create new cell
-			let addCol = document.createElement("td");
+			//let addCol = document.createElement("td");
+			let addCol = newCell();
 			// Append it to the row
 			rows[i].appendChild(addCol);
 		}
@@ -139,6 +153,7 @@ fill all cells with the currently selected color
 /*
 clear all cells/restore all cells to their original/initial color
 */
+
 
 /*
 click and hold (mouseover) from a single cell (start) to a different cell (end) 
