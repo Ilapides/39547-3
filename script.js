@@ -1,16 +1,76 @@
+
+var colCount = 0;
+var rowCount = 0;
+var chosenColor;
+
+var table = document.getElementById("table");
+
+/*
+Refresh table changes
+*/
+function refreshTableIds(){
+	for (var i = 0; i < rowCount; i++) {
+		for (var j = 0; j < colCount; j++) {
+			var cell = table.rows[i].cells[j];
+			cell.id = 'tdcell_' + i + "_" + j;
+			cell.removeEventListener("click", onCellClick);
+			cell.addEventListener("click", onCellClick);
+		}
+	}
+}
+
+/*
+OnClick
+*/
+function onCellClick(event){
+	var v = document.getElementById("SelectedID").value;
+   if (v === "Select a Color") return;
+   event.target.style.background = v;
+}
+
 /*
 add rows to the grid
 */
-
-
+function addR() {
+	var row = table.insertRow(0);
+	if (colCount == 0) {
+		row.insertCell(0);
+		colCount++;
+	} 
+	else{
+		for (var i = 0; i < colCount; i++) {
+			row.insertCell(0);
+		}
+	}
+	rowCount++;
+	refreshTableIds();
+}
 
 /*
 add columns to the grid
 */
+function addC(){
+	if(table.rows.length === 0){
+		var row = table.insertRow(0);
+		rowCount++;
+	}
+	for (var i = 0; i < rowCount; i++){
+		var row = table.rows.item(i);
+		let newCell = row.insertCell(0);
+	}
+	colCount++;
+	refreshTableIds();
+}
 
 /*
 remove rows from the grid
 */
+function removeR(){
+	if (rowCount === 0) return;
+	rowCount--;
+	refreshTableIds();
+}
+
 
 /*
 remove columns from the grid
