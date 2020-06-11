@@ -119,10 +119,14 @@ function removeC(){
 /*
 select a color from a dropdown menu of colors
 */
+function Selected(){
+	chosenColor = document.getElementById("selectedID").value;
+}
 
 /*
 click on a single cell, changing its color to the currently selected color
 */
+
 
 /*
 fill all uncolored cells with the currently selected color
