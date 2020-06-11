@@ -134,7 +134,7 @@ function removeC(){
 select a color from a dropdown menu of colors
 */
 function Selected(){
-	chosenColor = document.getElementById("selectedID").value;
+	chosenColor = document.getElementById("Colors").value;
 }
 
 /*
