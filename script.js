@@ -2,13 +2,16 @@
 var colCount = 0;
 var rowCount = 0;
 var chosenColor;
+var table = document.getElementById("grid");
 
+function removeC(){
+	console.log("hello");
+}
 
 /*
 Refresh table changes
 */
 function refreshTableIds(){
-	let table = document.getElementById("table");
 	for (var i = 0; i < rowCount; i++) {
 		for (var j = 0; j < colCount; j++) {
 			var cell = table.rows[i].cells[j];
@@ -32,7 +35,6 @@ function onCellClick(event){
 add rows to the grid
 */
 function addR() {
-	let table = document.getElementById("table");
 	var row = table.insertRow(0);
 	if (colCount == 0) {
 		row.insertCell(0);
@@ -51,7 +53,6 @@ function addR() {
 add columns to the grid
 */
 function addC(){
-	let table = document.getElementById("table");
 	if(table.rows.length === 0){
 		var row = table.insertRow(0);
 		rowCount++;
