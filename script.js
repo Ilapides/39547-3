@@ -1,8 +1,12 @@
 
 var colCount = 0;
 var rowCount = 0;
+var depressed = false;
 var chosenColor;
 var table = document.getElementById("grid");
+
+table.addEventListener('mousedown', function(){depressed = true});
+table.addEventListener('mouseup', function(){depressed = false});
 
 /*
 function to create a cell with onclick and click and drag functionality
@@ -10,11 +14,8 @@ function to create a cell with onclick and click and drag functionality
 function newCell(){
 	let newC = document.createElement("td");
 	newC.style.backgroundColor = "#ffffff";
-	newC.onmousedown = function() {
-		depressed = true;
-	}
-	newC.onmouseup = function() {
-		depressed = false;
+	newC.onmouseclick = function(){
+		this.style.backgroundColor = chosenColor;
 	}
 	newC.onmouseover = function () {
 		if (depressed) this.style.backgroundColor = chosenColor;
@@ -153,7 +154,15 @@ fill all cells with the currently selected color
 /*
 clear all cells/restore all cells to their original/initial color
 */
-
+function Clear(){
+	let rows = table.getElementsByTagName("tr");
+	for (var h = 0; h < rowCount; h++){
+		let cells = rows[h].getElementsByTagName("td");
+		for (var i = 0; i < colCount; i++){
+			cells[i].style.backgroundColor = "white"
+		}	
+	};
+}
 
 /*
 click and hold (mouseover) from a single cell (start) to a different cell (end) 
