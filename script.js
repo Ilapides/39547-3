@@ -17,7 +17,7 @@ function to create a cell with onclick and click and drag functionality
 */
 function newCell(){
 	let newC = document.createElement("td");
-	newC.style.backgroundColor = "#ffffff";
+	newC.style.backgroundColor = "rgb(255, 255, 255)";
 	newC.onmouseclick = function(){
 		depressed = true;
 		this.style.backgroundColor = chosenColor;
@@ -156,7 +156,7 @@ function fillUn(){
 	for (var h = 0; h < rowCount; h++){
 		let cells = rows[h].getElementsByTagName("td");
 		for (var i = 0; i < colCount; i++){
-			if (cells[i].style.backgroundColor === "#fffffff")	{
+			if (cells[i].style.backgroundColor === "rgb(255, 255, 255)")	{
 				cells[i].style.backgroundColor = chosenColor;
 			}
 		}	
@@ -186,7 +186,7 @@ function Clear(){
 	for (var h = 0; h < rowCount; h++){
 		let cells = rows[h].getElementsByTagName("td");
 		for (var i = 0; i < colCount; i++){
-			cells[i].style.backgroundColor = "white"
+			cells[i].style.backgroundColor = "rgb(255, 255, 255)"
 		}	
 	};
 }
