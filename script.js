@@ -150,6 +150,16 @@ fill all uncolored cells with the currently selected color
 /*
 fill all cells with the currently selected color
 */
+function fill(){
+	let rows = table.getElementsByTagName("tr");
+	for (var h = 0; h < rowCount; h++){
+		let cells = rows[h].getElementsByTagName("td");
+		for (var i = 0; i < colCount; i++){
+			cells[i].style.backgroundColor = chosenColor;
+		}	
+	};
+}
+
 
 /*
 clear all cells/restore all cells to their original/initial color
