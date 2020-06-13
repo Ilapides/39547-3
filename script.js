@@ -3,6 +3,7 @@ var colCount = 0;
 var rowCount = 0;
 var depressed = false;
 var chosenColor;
+var clickMode = true;
 var table = document.getElementById("grid");
 
 document.body.onmouseup = function(){
@@ -18,10 +19,14 @@ function to create a cell with onclick and click and drag functionality
 function newCell(){
 	let newC = document.createElement("td");
 	newC.style.backgroundColor = "rgb(255, 255, 255)";
-	newC.onmouseclick = function(){
-		depressed = true;
-		this.style.backgroundColor = chosenColor;
-	}
+	// newC.onmouseclick = function(){
+	// 	if (document.getElementById("Mode").value === "Click")	this.style.backgroundColor = chosenColor;
+	// }
+	newC.addEventListener("click", () => {
+			newC.style.backgroundColor = chosenColor;
+			//depressed = true;
+		}
+	);
 	newC.onmouseover = function () {
 		if (depressed) this.style.backgroundColor = chosenColor;
 	}
@@ -139,8 +144,17 @@ function removeC(){
 /*
 select a color from a dropdown menu of colors
 */
-function Selected(){
+function colorSelected(){
 	chosenColor = document.getElementById("Colors").value;
+}
+
+function modeSelected(){
+	if (document.getElementById("Mode").value == "Click"){
+		clickMode = true;
+	}
+	else{
+		clickMode = false;
+	}
 }
 
 /*
