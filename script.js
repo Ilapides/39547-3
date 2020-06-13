@@ -127,6 +127,14 @@ remove columns from the grid
 function removeC(){
 	// If there are no columns, there is nothing to be done
 	if (colCount === 0) return;
+	if (colCount === 1){
+		for (let i = 0; i < rowCount; i++){
+			table.removeChild(table.lastElementChild);
+		}
+		rowCount = 0;
+		colCount = 0;
+		return;
+	}
 	// Otherwise, decrement colCount
 	colCount--;
 	// Select all rows
