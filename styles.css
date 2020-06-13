@@ -8,3 +8,21 @@ td{
 	height: 50px;
 	background-color: #ffffff;
 }
+
+body {
+	background-color: lightblue;
+}
+
+#sizing {
+	border: 15px solid green;
+	padding: 5px;
+	margin: 20px;
+	background-color: darkgreen;
+}
+
+#colors {
+	border: 15px solid blue;
+	padding: 5px;
+	margin: 20px;
+	background-color: darkblue;
+}
